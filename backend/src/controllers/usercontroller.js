@@ -14,7 +14,7 @@ module.exports.userRegister= async(req,res)=>{
             username,
             password:hashPassword,
             email,
-            role:"user"
+            role
         })
         
 
