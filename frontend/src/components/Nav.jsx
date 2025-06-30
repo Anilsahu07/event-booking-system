@@ -78,6 +78,7 @@ const Nav = () => {
 
           {
             (toggleMenu && loggeduser.user.role==="user" ) &&  <div className='flex flex-col items-center outlin w-screen h-screen bg-gray-700 justify-center gap-10'>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-3xl`} to={`/profile`}>Profile</NavLink>
             <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-3xl`} to={`/`}>Home</NavLink>
             <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-3xl`} to={`/events/booked`}>Booked Events</NavLink>
             <button className={`bg-white text-2xl px-5 py-3 hover:bg-black hover:text-white hover:outline rounded  text-black`} onClick={() =>{logout(); settoggleMenu(false)}}>Logout</button>
