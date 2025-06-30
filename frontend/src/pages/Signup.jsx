@@ -13,6 +13,8 @@ const Signup = () => {
   const navigate= useNavigate()
 
   const handleSubmitUser = async(userDetails) => {
+    console.log(userDetails);
+    
     try {
       const {data} = await axios.post("/users/signup", userDetails)
       localStorage.setItem("user", JSON.stringify(data))
