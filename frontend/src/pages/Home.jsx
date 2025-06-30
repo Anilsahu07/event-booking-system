@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 
 const Home = () => {
-  const {events,setevents,setbookedEvents,bookedEvents}= useContext(userContext)
+  const {events,setevents,setbookedEvents,bookedEvents,user}= useContext(userContext)
   const navigate= useNavigate()
   
 

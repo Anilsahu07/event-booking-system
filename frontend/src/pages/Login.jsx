@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 const Login = () => {
   const navigate= useNavigate()
-  const {user}= useContext(userContext)
+  
   const { register, handleSubmit } = useForm()
 
   const handleLoginUser = async(userDetails) => {
@@ -26,8 +26,8 @@ const Login = () => {
   return (
   <div className='w-screen h-[88vh] flex justify-center items-center p-3'>
         <form className='flex flex-col items-center gap-2 p-5 rounded-xl lg:w-1/4 w-full bg-yellow-200 outline' onSubmit={handleSubmit(handleLoginUser)}>
-          <input {...register("email")} className='border-b border-black rounded p-2 w-full' type="email" placeholder='example@gmail.com' />
-          <input {...register("password")} className='border-b border-black rounded p-2 w-full' type="password" placeholder='****' />
+          <input {...register("email",{required:true})} className='border-b border-black rounded p-2 w-full' type="email" placeholder='example@gmail.com' />
+          <input {...register("password",{required:true})} className='border-b border-black rounded p-2 w-full' type="password" placeholder='****' />
             <div className='flex flex-col items-center w-full justify-around mt-3 gap-2'>
                 <button type='submit' className='bg-red-600 text-white px-4 py-2 rounded'>Login</button>
               <div className='flex items-center gap-3'>

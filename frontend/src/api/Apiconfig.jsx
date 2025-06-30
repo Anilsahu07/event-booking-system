@@ -1,9 +1,8 @@
 import axios from 'axios'
 
 const instance= axios.create({
-    baseURL:"https://event-booking-system-2-twry.onrender.com/api",
+    baseURL:"http://localhost:3000",
     withCredentials:true
 })
-
   
 export default instance

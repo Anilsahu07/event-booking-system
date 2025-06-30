@@ -14,15 +14,16 @@ module.exports.userRegister= async(req,res)=>{
             username,
             password:hashPassword,
             email,
-            role:"user"
+            role,
         })
         
 
         const token= jwt.sign({
             id:user._id,
-            email:user.email
+            email:user.email,
+            role: user.role
         },"event-key")
-
+        
         res.cookie("token",token)
 
         res.status(201).json({
@@ -33,7 +34,7 @@ module.exports.userRegister= async(req,res)=>{
     } catch (error) {
         res.status(404).json(error)
     }
-    
+
 }
 
 
@@ -50,7 +51,7 @@ module.exports.loginUser= async(req,res)=>{
             res.status(404).json("User not found")
         }
     
-           const isMatched=await bcrypt.compare(password,user.password)
+        const isMatched=await bcrypt.compare(password,user.password)
     
         if (!isMatched) {
             res.status(404).json("Invalid Credentials")

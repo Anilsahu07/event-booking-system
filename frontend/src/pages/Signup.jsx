@@ -11,6 +11,7 @@ const Signup = () => {
   
   const { register, handleSubmit,reset } = useForm()
   const navigate= useNavigate()
+
   const handleSubmitUser = async(userDetails) => {
     try {
       const {data} = await axios.post("/users/signup", userDetails)
@@ -28,10 +29,10 @@ const Signup = () => {
   return (
     <div className='w-screen h-[88vh] flex justify-center items-center p-3'>
       <form className='flex flex-col items-center gap-2 p-4 outline  rounded-xl w-full lg:w-1/4 bg-pink-300' onSubmit={handleSubmit(handleSubmitUser)}>
-        <input {...register("image")} className=' p-2 w-full  border-b border-black rounded' type="url" placeholder='User Profile image' />
+        <input {...register("image",{required:true})} className=' p-2 w-full  border-b border-black rounded' type="url" placeholder='User Profile image' />
         <input {...register("username")} className='p-2 border-b border-black rounded w-full' type="text" placeholder='Alex Mercer-x' />
-        <input {...register("email")} className='border-b border-black rounded p-2 w-full' type="email" placeholder='example@gmail.com' />
-        <input {...register("password")} className='border-b border-black rounded p-2 w-full' type="password" placeholder='****' />
+        <input {...register("email",{required:true})} className='border-b border-black rounded p-2 w-full' type="email" placeholder='example@gmail.com' />
+        <input {...register("password",{required:true})} className='border-b border-black rounded p-2 w-full' type="password" placeholder='****' />
         <select className='border-b border-black rounded p-2 w-full' {...register("role")} defaultValue="user">
           <option value="user">User</option>
           <option value="admin">Admin</option>
