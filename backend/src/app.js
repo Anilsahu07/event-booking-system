@@ -8,15 +8,17 @@ const cookieParser= require("cookie-parser")
 
 app.use(express.json())
 app.use(cors({
-     origin: "http://localhost:5173",
+     origin: ["http://localhost:5173","https://event-booking-system-smoky.vercel.app"],
      credentials: true
 }))
 app.use(cookieParser())
 app.use(express.urlencoded({extended:true}))
 
 
-app.use("/users",userRoute)
-app.use("/events",eventRoute)
+app.use("/api/users",userRoute)
+app.use("/api/events",eventRoute)
+
+
 
 
 module.exports=app
