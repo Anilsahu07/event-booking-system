@@ -23,7 +23,7 @@ const Events = () => {
 
  const handleCreateEvents=async(event)=>{
   try {
-    const {data}= await axios.post("/events/create",event)
+    const {data}= await axios.post("/events/create",event,{withCredentials:true})
     const updatedEvent= [...events,data]
     setevents(updatedEvent)
     toast.success("Event Created by Admin")
