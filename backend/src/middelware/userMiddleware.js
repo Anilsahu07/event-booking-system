@@ -8,7 +8,7 @@ module.exports.verifyToken=(req,res,next)=>{
         req.user= decoded
         next()
     } catch (error) {
-        res.status(404).json("Invalid Token")
+        res.status(401).json({message:"Invalid Token"})
     }
     
 }
@@ -16,7 +16,7 @@ module.exports.verifyToken=(req,res,next)=>{
 
 module.exports.verifyAdmin=(req,res,next)=>{
     if (req.user.role!== "admin") {
-        return res.status(404).json({message:"Access denied"})
+        return res.status(403).json({message:"Access denied"})
     }
     next()
 }
