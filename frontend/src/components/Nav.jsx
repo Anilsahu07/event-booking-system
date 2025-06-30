@@ -71,6 +71,7 @@ const Nav = () => {
         <div ref={divRef} className='flex flex-col absolute right-0 top-0'>
         {
           (toggleMenu && loggeduser.user.role==="admin" )&& <div className='flex flex-col items-center justify-center gap-10 w-screen h-screen bg-black'>
+             <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/profile`}>Profile</NavLink>
             <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/`}>Home</NavLink>
             <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/events/create`}>Create Events</NavLink>
             <button className={` bg-white text-2xl px-5 py-3 hover:bg-black hover:text-white hover:outline rounded  text-black`} onClick={() =>{logout(); settoggleMenu(false)}}>Logout</button>

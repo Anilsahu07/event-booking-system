@@ -37,7 +37,7 @@ const Events = () => {
 
 
   return (
-    <div className='w-screen lg:h-screen h-[92vh] flex lg:flex-row flex-col-reverse lg:justify-center justify-evenly items-center p-4 lg:gap-2 bg-gray-200'>
+    <div className='w-screen lg:h-screen h-[92vh] flex lg:flex-row flex-col-reverse lg:justify-center justify-evenly items-center p-4 lg:gap-2 gap-5 bg-gray-200'>
       <form className='lg:w-1/2 w-full flex flex-col items-center lg:bordr border-black rounded-2xl text-center lg:p-5 p-4 lg:h-fit h-fit lg:justify-center gap-4 bg-red-300 font-[montserrat] justify-center' action="" onSubmit={handleSubmit(handleCreateEvents)}>
         <h1 className='lg:text-3xl text-5xl font-semibold'>Making for you...</h1>
         <h1 className=''>Create Events for the people,as this right is only given <br /> to the Admin's only!!</h1>
