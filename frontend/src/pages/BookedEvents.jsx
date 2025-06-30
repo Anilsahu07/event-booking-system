@@ -15,7 +15,7 @@ const BookedEvents = () => {
     
   return (
     <div className='w-screen lg:flex lg:items-center lg:justify-center justify-center'>
-        {bookedEvents.length===0?<p>No events booked yet!!</p>: bookedEvents.map(e=>(
+        {bookedEvents.length===0?<p className='text-center'>No events booked yet!!</p>: bookedEvents.map(e=>(
             <div key={e._id} className='flex flex-col gap-2 items-center justify-around w-full p-3'>
               <div className='lg:flex lg:flex-col lg:items-center lg:justify-center text-center lg:w-[500px] gap-2 p-3 bg-purple-500 rounded-xl font-[montserrat]'>
                 <img className='lg:w-full w-full rounded-xl' src={e.photo} alt="404" />
