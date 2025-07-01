@@ -51,7 +51,7 @@ module.exports.loginUser = async (req, res) => {
     const isMatched = await bcrypt.compare(password, user.password);
 
     if (!isMatched) {
-      res.status(404).json("Invalid Credentials");
+      res.status(404).json("Invalid Credentials");      
     }
 
     const token = jwt.sign(
@@ -66,7 +66,8 @@ module.exports.loginUser = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true, // prevents client-side JS from accessing the cookie
       secure: true, // ensures cookie is sent only over HTTPS
-      sameSite: "strict", // prevents CSRF attacks (can be "lax" or "none" if needed)
+      sameSite: "None",
+      maxAge: 24 * 60 * 60 * 1000 // prevents CSRF attacks (can be "lax" or "none" if needed)
     });
     res.status(201).json({ message: "User Logged In", token, isMatched, user });
   } catch (error) {
