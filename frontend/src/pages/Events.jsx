@@ -13,7 +13,7 @@ const Events = () => {
     const fetchEvents=async()=>{
        const {data}=await axios.get("/events/")
        setevents(data)
-        JSON.parse(localStorage.getItem("users"))
+       localStorage.setItem('events', JSON.stringify(data))
     }
 
     useEffect(() => {
@@ -22,8 +22,6 @@ const Events = () => {
   
 
  const handleCreateEvents=async(event)=>{
-  
-
   try {
     const {data}= await axios.post("/events/create",event,{withCredentials:true})
     const updatedEvent= [...events,data]
