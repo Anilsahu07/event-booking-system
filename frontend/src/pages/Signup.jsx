@@ -12,6 +12,8 @@ const Signup = () => {
   const { register, handleSubmit,reset } = useForm()
   const navigate= useNavigate()
 
+
+
   const handleSubmitUser = async(userDetails) => {
     console.log(userDetails);
     

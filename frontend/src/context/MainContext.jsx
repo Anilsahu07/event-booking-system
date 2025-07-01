@@ -9,7 +9,7 @@ const MainContext = ({children}) => {
   const [toggleMenu, settoggleMenu] = useState(false)
   const [bookedEvents, setbookedEvents] = useState([])
   
-
+console.log(events)
   
   return (
     <div>
