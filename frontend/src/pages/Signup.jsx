@@ -39,7 +39,7 @@ const Signup = () => {
         <input {...register("password",{required:true})} className='border-b border-black rounded p-2 w-full' type="password" placeholder='****' />
         <select className='border-b border-black rounded p-2 w-full' {...register("role")} defaultValue="user">
           <option value="user">User</option>
-          <option value="admin">Admin</option>
+          {/* <option value="admin">Admin</option> */}
         </select>
           <div className='flex flex-col items-center w-full justify-around mt-3 gap-2'>
               <button type='submit' className='bg-red-600 text-white px-4 py-2 rounded'>Signup</button>
