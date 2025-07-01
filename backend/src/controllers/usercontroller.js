@@ -12,7 +12,7 @@ module.exports.userRegister = async (req, res) => {
       username,
       password: hashPassword,
       email,
-      role,
+      role:"user"
     });
 
     const token = jwt.sign(
