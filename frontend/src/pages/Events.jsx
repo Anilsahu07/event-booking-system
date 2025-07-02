@@ -7,20 +7,7 @@ import { toast } from 'react-toastify'
 const Events = () => {
   const {events,setevents}=useContext(userContext)
   const {register,handleSubmit}= useForm()
-  console.log(events);
   
-
-    const fetchEvents=async()=>{
-       const {data}=await axios.get("/events/")
-       setevents(data)
-       localStorage.setItem('events', JSON.stringify(data))
-    }
-
-    useEffect(() => {
-      fetchEvents()
-    }, [])
-  
-
  const handleCreateEvents=async(event)=>{
   try {
     const {data}= await axios.post("/events/create",event,{withCredentials:true})

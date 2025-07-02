@@ -8,19 +8,25 @@ import { toast } from 'react-toastify'
 
 
 const Home = () => {
-  const {events,setevents,setbookedEvents,bookedEvents,user}= useContext(userContext)
+  const {events,setevents,setbookedEvents,bookedEvents}= useContext(userContext)
   const navigate= useNavigate()
   
 
   const apps= JSON.parse(localStorage.getItem("loggeduser"))
 
 
-  useEffect(() => {
-    const apps= JSON.parse(localStorage.getItem("events"))
-    if (apps) {
-      setevents(apps)
+  const fetchEvents=async()=>{
+       const {data}=await axios.get("/events/",{withCredentials:true})
+       setevents(data)
+       localStorage.setItem('events', JSON.stringify(data))
     }
-  }, [])
+
+    useEffect(() => {
+      if (!events || events.length === 0) {
+      fetchEvents()
+    }
+    }, [])
+  
 
   
   
@@ -44,8 +50,6 @@ const Home = () => {
     navigate(`events/update/${id}`)
   }
   
-
-
 
 
     useEffect(() => {
@@ -85,7 +89,7 @@ const Home = () => {
 
       {apps.user.role==="admin"?(
       <div className='lg:w-screen w-screen flex justify-center p-3 flex-wrap gap-1'>
-        <div className='w-full text-center p-3 bg-blue-500 text-white rounded-xl font-[montserrat]'>
+        <div className='w-full text-center p-3 bg-blue-600 text-white rounded-xl font-[montserrat]'>
           <h2 className='lg:text-5xl text-3xl font-semibold lg:font-normal'>Product Launches <br /> and Epecial Events</h2>
           <p className='mt-4 lg:w-3/5 w-full m-auto font-light text-[whitesmoke]'>Craft one-of-a-kind special event and product launch parties that bring you community together, lift hearts, wind mind and get your audiance sharing their experience far and wide.</p>
           <button onClick={navigateToCreate} className='mt-4 text-black bg-white rounded px-3 py-2 text-sm font-[poppins] hover:bg-black hover:text-white'>Plan your Event</button>
