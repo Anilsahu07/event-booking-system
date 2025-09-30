@@ -1,3 +1,141 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.topic-form {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  /* backdrop-filter: blur(1px); */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.topic-form form {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.topic-form input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 14px;
+  background: #fafafa;
+  outline: none;
+  transition: all 0.25s ease;
+  min-width: 200px;
+}
+
+.topic-form input:focus {
+  border-color: #6366f1;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.topic-form button {
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.topic-form button[type="submit"] {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.topic-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+}
+
+.topic-form button[type="button"] {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.topic-form button[type="button"]:hover {
+  background: #e5e7eb;
+}
+
+.error {
+  color: #dc2626;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+.result {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.4s ease;
+}
+
+.result h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.result-body {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* -------------------
+   Responsive Styling
+------------------- */
+@media (max-width: 600px) {
+  .topic-form {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .topic-form form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topic-form input {
+    width: 100%;
+  }
+
+  .topic-form button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .topic-form button + button {
+    margin-top: 10px;
+  }
+
+  .result {
+    font-size: 14.5px;
+  }
+}
+

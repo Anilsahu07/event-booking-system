@@ -8,6 +8,8 @@ const MainContext = ({children}) => {
   const [events, setevents] = useState([])
   const [toggleMenu, settoggleMenu] = useState(false)
   const [bookedEvents, setbookedEvents] = useState([])
+  console.log(user);
+  
   
 console.log(events)
   

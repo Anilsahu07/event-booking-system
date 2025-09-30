@@ -22,9 +22,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-      if (!events || events.length === 0) {
       fetchEvents()
-    }
     }, [])
   
 
@@ -82,6 +80,11 @@ const Home = () => {
   const navigateToBooked=()=>{
     navigate("/events/booked")
   }
+
+  const refreshData = () => {
+    fetchEvents()
+    toast.info("Refreshing events...")
+  }
   
   
   return (
@@ -93,6 +96,7 @@ const Home = () => {
           <h2 className='lg:text-5xl text-3xl font-semibold lg:font-normal'>Product Launches <br /> and Epecial Events</h2>
           <p className='mt-4 lg:w-3/5 w-full m-auto font-light text-[whitesmoke]'>Craft one-of-a-kind special event and product launch parties that bring you community together, lift hearts, wind mind and get your audiance sharing their experience far and wide.</p>
           <button onClick={navigateToCreate} className='mt-4 text-black bg-white rounded px-3 py-2 text-sm font-[poppins] hover:bg-black hover:text-white'>Plan your Event</button>
+          <button onClick={refreshData} className='mt-2 ml-2 text-white bg-blue-800 rounded px-3 py-2 text-sm font-[poppins] hover:bg-blue-900'>Refresh Events</button>
        </div>
         {events?.map((e,i)=>(
           <div className='w-full lg:p-3 p-4  rounded-lg flex flex-col items-center lg:flex-row gap-4  h-fit lg:flex lg:items-center lg:gap-5 font-[montserrat] bg-green-300 transition-all duration-200 lg:mt-5 mt-8' key={i}>
@@ -121,6 +125,7 @@ const Home = () => {
           <h2 className='lg:text-5xl text-3xl lg:font-normal font-semibold text-center'>Product Launches <br /> and Epecial Events</h2>
           <p className='mt-4 lg:w-3/5 w-full m-auto font-light text-[whitesmoke]'>Craft one-of-a-kind special event and product launch parties that bring you community together, lift hearts, wind mind and get your audiance sharing their experience far and wide.</p>
           <button onClick={navigateToBooked} className='mt-4 text-black bg-white rounded px-3 py-2 text-sm font-[poppins] hover:bg-black hover:text-white'>Get your Event</button>
+          <button onClick={refreshData} className='mt-2 ml-2 text-white bg-blue-800 rounded px-3 py-2 text-sm font-[poppins] hover:bg-blue-900'>Refresh Events</button>
        </div>
       {events.length === 0 ? (
       <p>Fetching...</p>

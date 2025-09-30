@@ -59,6 +59,7 @@ const Nav = () => {
       <h1 className='font-[montserrat] lg:text-2xl lg:flex items-center gap-2 flex '><p className='text-orange-500 font-bold lg:text-4xl text-3xl'>EVENT</p> Makers</h1>
       {loggeduser? 
       <div className='flex gap-6 font-[poppins]'>
+        <NavLink to={`/events/search`} className={`lg:flex hidden`}> <i class="ri-robot-2-fill text-white text-xl"></i> </NavLink>
         <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 lg:flex hidden`} to={`/profile`}>Profile</NavLink>
         <NavLink className={`hover:text-orange-600 lg:flex hidden`} to={`/`}>Home</NavLink>
         {loggeduser.user.role==="admin" ? <div><NavLink className={`hover:text-orange-600 lg:flex hidden`} to={`/events/create`}>Events</NavLink></div> :<div><NavLink className={`hover:text-orange-600 lg:flex hidden`} to={`/events/booked`}>Booked Events</NavLink></div>}
@@ -66,24 +67,25 @@ const Nav = () => {
 
         <div ref={iconRef} className='lg:hidden flex'>
           <button onClick={toggle} className='lg:hidden flex text-3xl'>
-            {toggleMenu?<i className="ri-menu-3-line bg-white font-semibold rounded p-2 text-black"></i>:<i className="ri-menu-line  bg-white rounded p-2 text-black font-semibold"></i>}
+            {toggleMenu?<i className="ri-menu-3-line bg-white font-semibold rounded p-0.5 text-black"></i>:<i className="ri-menu-line  bg-white rounded p-0.5 text-black font-semibold"></i>}
           </button>
         <div ref={divRef} className='flex flex-col absolute right-0 top-0'>
         {
-          (toggleMenu && loggeduser.user.role==="admin" )&& <div className='flex flex-col items-center justify-center gap-10 w-screen h-screen bg-black'>
-             <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/profile`}>Profile</NavLink>
-            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/`}>Home</NavLink>
-            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/events/create`}>Create Events</NavLink>
-            <button className={` bg-white text-2xl px-5 py-3 hover:bg-black hover:text-white hover:outline rounded  text-black`} onClick={() =>{logout(); settoggleMenu(false)}}>Logout</button>
+          (toggleMenu && loggeduser.user.role==="admin" )&& <div className='flex flex-col items-center justify-center gap-5 w-screen h-screen bg-black'>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-xl text-white`} to={`/profile`}>Profile</NavLink>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-xl text-white`} to={`/`}>Home</NavLink>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-xl text-white`} to={`/events/create`}>Create Events</NavLink>
+           <button className={`bg-white text-2xl px-5 py-1 hover:bg-black hover:text-white hover:outline rounded  text-black font-[montserrat] text-[17px]`} onClick={() =>{logout(); settoggleMenu(false)}}>Logout</button>
           </div> 
           }
 
           {
-            (toggleMenu && loggeduser.user.role==="user" ) &&  <div className='flex flex-col items-center outlin w-screen h-screen bg-gray-700 justify-center gap-10'>
-            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/profile`}>Profile</NavLink>
-            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/`}>Home</NavLink>
-            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-2xl text-white`} to={`/events/booked`}>Booked Events</NavLink>
-            <button className={`bg-white text-2xl px-5 py-3 hover:bg-black hover:text-white hover:outline rounded  text-black`} onClick={() =>{logout(); settoggleMenu(false)}}>Logout</button>
+            (toggleMenu && loggeduser.user.role==="user" ) &&  <div className='flex flex-col items-center w-screen h-screen bg-gray-700 justify-center gap-5 underline'>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-xl text-white`} to={`/profile`}>Profile</NavLink>
+            <NavLink onClick={()=>settoggleMenu(false)} to={`/events/search`} className={`hover:text-orange-600 text-xl text-white flex gap-2 items-center`}> <i class="ri-robot-2-fill text-xl text-orange-600"></i>Search with AI</NavLink>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-xl text-white`} to={`/`}>Home</NavLink>
+            <NavLink onClick={()=>settoggleMenu(false)} className={`hover:text-orange-600 text-xl text-white`} to={`/events/booked`}>Booked Events</NavLink>
+            <button className={`bg-white text-2xl px-5 py-1 hover:bg-black hover:text-white hover:outline rounded  text-black font-[montserrat] text-[17px]`} onClick={() =>{logout(); settoggleMenu(false)}}>Logout</button>
             </div>
           }
         </div>

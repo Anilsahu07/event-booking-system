@@ -8,6 +8,7 @@ import Unauth from './Unauth'
 import Update from '../pages/Update'
 import BookedEvents from '../pages/BookedEvents'
 import Profile from '../pages/Profile'
+import Search from '../pages/Search'
 
 const MainRouter = () => {
   return (
@@ -20,6 +21,7 @@ const MainRouter = () => {
       <Route path='/events/update/:id' element={<Auth><Update/></Auth>}/>
       <Route path='/events/create' element={<Auth><Events/></Auth>}/>
       <Route path='/events/booked/' element={<Auth><BookedEvents/></Auth>}/>
+      <Route path='/events/search/' element={<Auth><Search/></Auth>}/>
     </Routes>
   )
 }
