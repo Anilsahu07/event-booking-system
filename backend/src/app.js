@@ -9,7 +9,7 @@ const cookieParser= require("cookie-parser")
 
 app.use(express.json())
 app.use(cors({
-     origin: "https://startling-palmier-a78e4f.netlify.app", 
+     origin: "https://sparkly-zuccutto-d7cad9.netlify.app", 
      // origin:"http://localhost:5173",
      credentials: true
 }))
