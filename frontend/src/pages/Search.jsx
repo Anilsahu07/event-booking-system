@@ -14,7 +14,7 @@ export default function TopicForm(){
     setLoading(true);
 
     try{
-      const res = await fetch('http://localhost:3000/gemini/generate', {
+      const res = await fetch('/gemini/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic })
